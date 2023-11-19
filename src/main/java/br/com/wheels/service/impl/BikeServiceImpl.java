@@ -6,6 +6,11 @@ import br.com.wheels.service.BikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+
 @Service
 public class BikeServiceImpl implements BikeService {
     @Autowired
@@ -14,6 +19,11 @@ public class BikeServiceImpl implements BikeService {
     @Override
     public Bike getBikeById(int id) {
         return bikeRepository.findById(id);
+    }
+
+    @Override
+    public List<Bike> getAllBikes() {
+        return bikeRepository.findAll();
     }
 
     @Override

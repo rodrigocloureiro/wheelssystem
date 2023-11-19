@@ -5,6 +5,8 @@ import br.com.wheels.service.BikeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/bike")
 @CrossOrigin
@@ -26,6 +28,16 @@ public class BikeController {
 //    public Bike getBikeByModel(@RequestParam(required = true) String model) {
 //        return bikeService.getBikeByModel(model);
 //    }
+
+    @GetMapping("/getBikeModel/{model}")
+    public Bike getBikeByModel(@PathVariable String model) {
+        return bikeService.getBikeByModel(model);
+    }
+
+    @GetMapping("/getAll")
+    public List<Bike> getAllBikes() {
+        return bikeService.getAllBikes();
+    }
 
     @PostMapping("/add")
     public String add(@RequestBody Bike bike) {
