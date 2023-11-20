@@ -35,4 +35,9 @@ public class BikeServiceImpl implements BikeService {
     public Bike saveBike(Bike bike) {
         return bikeRepository.save(bike);
     }
+
+    @Override
+    public void deleteBike(int id) {
+        bikeRepository.deleteById(id);
+    }
 }

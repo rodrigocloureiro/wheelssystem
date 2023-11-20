@@ -12,4 +12,6 @@ public interface BikeService {
     Bike getBikeByModel(String model);
 
     Bike saveBike(Bike bike);
+
+    void deleteBike(int id);
 }

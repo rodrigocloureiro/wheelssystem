@@ -3,6 +3,7 @@ package br.com.wheels.controller;
 import br.com.wheels.model.Bike;
 import br.com.wheels.service.BikeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,5 +44,11 @@ public class BikeController {
     public String add(@RequestBody Bike bike) {
         bikeService.saveBike(bike);
         return "New bike is added";
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity delete(@RequestBody Bike bike) {
+        bikeService.deleteBike(bike.getId());
+        return ResponseEntity.ok("The bike is deleted");
     }
 }
